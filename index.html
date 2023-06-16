@@ -40,12 +40,17 @@
               </div>
             </div>
             <div class="metric-units">
-              <div class="form__error-message not-visible" id="metricHeight-input-error"></div>
+              <p class="form__error-message not-visible" id="metricHeight-input-error"></p>
               <div class="metric-group">
                 <label for="metricHeight">Height</label>
+                <p class="sr-only">In centimeters</p>
                 <input 
                   class="form__input"
                   type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  spellcheck="false"
+                  maxlength="3" 
                   id="metricHeight"
                   name="metricHeight"
                   placeholder="185"
@@ -54,12 +59,17 @@
                   value=""
                   required>
               </div>
-              <div class="form__error-message not-visible" id="metricWeight-input-error"></div>
+              <p class="form__error-message not-visible" id="metricWeight-input-error"></p>
               <div class="metric-group">
                 <label for="metricWeight">Weight</label>
+                <p class="sr-only">In kilograms</p>
                 <input 
                   class="form__input"
                   type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  spellcheck="false"
+                  maxlength="3" 
                   id="metricWeight"
                   name="metricWeight"
                   placeholder="80"
@@ -69,28 +79,110 @@
                   required>
               </div>
             </div>
-            <div class="imperialUnits">
+            <div class="imperial-units">
+              <fieldset>
+                <legend>Height</legend>
+                <p class="form__error-message not-visible" id="imperialHeightFt-input-error"></p>
+                <p class="form__error-message not-visible" id="imperialHeightInch-input-error"></p>
+                <div class="imperial-group">
+                  <p class="sr-only">Enter your height using feet only, inches only or both feet and inches.</p>
+                  <label for="imperialHeightFt" class="sr-only">Feet</label>
+                  <input 
+                    class="form__input"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    spellcheck="false"
+                    maxlength="1" 
+                    id="imperialHeightFt"
+                    name="imperialHeightFt"
+                    placeholder="5"
+                    aria-invalid="false"
+                    aria-describedby="imperialHeightFt-input-error"
+                    value="">
+                  <label for="imperialHeightInch" class="sr-only">Inches</label>
+                  <input 
+                    class="form__input"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    spellcheck="false"
+                    maxlength="2"
+                    id="imperialHeightInch"
+                    name="imperialHeightInch"
+                    placeholder="11"
+                    aria-invalid="false"
+                    aria-describedby="imperialHeightInch-input-error"
+                    value="">
+                </div>
+              </fieldset>
+            </div>
+            <div class="imperial-units">
+              <fieldset>
+                <legend>Weight</legend>
+                <p class="form__error-message not-visible" id="imperialWeightStone-input-error"></p>
+                <p class="form__error-message not-visible" id="imperialWeightPound-input-error"></p>
+                <div class="imperial-group">
+                  <p class="sr-only">Enter your weight using stones only, pounds only or both stones and pounds.</p>
+                  <label for="imperialWeightStone" class="sr-only">Stones</label>
+                  <input 
+                    class="form__input"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    spellcheck="false"
+                    maxlength="2"
+                    id="imperialWeightStone"
+                    name="imperialWeightStone"
+                    placeholder="11"
+                    aria-invalid="false"
+                    aria-describedby="imperialWeightStone-input-error"
+                    value="">
+                  <label for="imperialWeightPound" class="sr-only">Pounds</label>
+                  <input 
+                    class="form__input"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    spellcheck="false"
+                    maxlength="3"
+                    id="imperialWeightPound"
+                    name="imperialWeightPound"
+                    placeholder="4"
+                    aria-invalid="false"
+                    aria-describedby="imperialWeightPound-input-error"
+                    value="">
+                </div>
+              </fieldset>
+            </div>
+            <div class="form__output">
+              <div class="form__output">
+                <label for="bmi">Your BMI is...</label>
+                <input
+                  type="text"
+                  id="bmi"
+                  name="bmi"
+                  data-js="score"
+                  value="23.4"
+                  readonly>
+              </div>
+              <div>
+                <p class="form__output-caption">
+                  Your BMI suggests you're <span data-js="classification">a healthy weight</span>. Your ideal weight is between <span data-js="range">63.3kgs - 85.2kgs</span>.
+                </p>
+              </div>
             </div>
           </fieldset>
         </form>
       </section>
+      <section class="results" aria-labelledby="results-heading">
+        <img src="assets/images/image-man-eating.webp" alt="Smiling man eating sushi">
+        <div class="results-content">
+          <h2 class="results__title" id="results-heading">What your BMI result means</h2>
+          <p class="results__subheading">A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a healthy weight may lower your chances of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar content, incorporating ample fruits and vegetables. Additionally, strive for regular physical activity, ideally about 30 minutes daily for five days a week.</p>
+        </div>
+      </section>
     </main>
-
-    Your BMI is...
-
-    <!-- add score -->
-
-    Your BMI suggests you're <!-- add classification -->. 
-    Your ideal weight is between <!-- add range -->.
-
-    What your BMI result means
-
-    A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a 
-    healthy weight may lower your chances of experiencing health issues later on, 
-    such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced 
-    fat and sugar content, incorporating ample fruits and vegetables. Additionally, 
-    strive for regular physical activity, ideally about 30 minutes daily for 
-    five days a week.
 
     Healthy eating
     Healthy eating promotes weight control, disease prevention, better digestion, 
