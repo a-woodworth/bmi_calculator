@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link href="styles.css" rel="stylesheet">
     
     <title>Frontend Mentor | Body Mass Index Calculator</title>
   </head>
   <body>
-    <main class="container">
-      <section class="calc" aria-label="BMI calculator">
+    <main>
+      <section class="calc container" aria-label="BMI calculator">
         <div class="calc__header">
           <a href="#"><img src="assets/images/logo.svg" alt="Healthy Apps logo. Click for home."></a>
           <h1 class="calc__title">Body Mass Index Calculator</h1>
@@ -39,7 +39,9 @@
               </div>
             </div>
             <div class="metric-units">
-              <p class="form__error-message not-visible" id="metricHeight-input-error"></p>
+              <p class="form__error-message not-visible" id="metricHeight-input-error">
+                Can't be blank
+              </p>
               <div class="metric-group">
                 <label for="metricHeight">Height</label>
                 <p class="sr-only">In centimeters</p>
@@ -81,8 +83,12 @@
             <div class="imperial-units hidden">
               <fieldset>
                 <legend>Height</legend>
-                <p class="form__error-message not-visible" id="imperialHeightFt-input-error"></p>
-                <p class="form__error-message not-visible" id="imperialHeightInch-input-error"></p>
+                <p class="form__error-message not-visible" id="imperialHeightFt-input-error">
+                  Can't be blank
+                </p>
+                <p class="form__error-message not-visible" id="imperialHeightInch-input-error">
+                  Can't be blank
+                </p>
                 <div class="imperial-group">
                   <p class="sr-only">Enter your height using feet only, inches only or both feet and inches.</p>
                   <label for="imperialHeightFt" class="sr-only">Feet</label>
@@ -116,11 +122,15 @@
                 </div>
               </fieldset>
             </div>
-            <div class="imperial-units">
+            <div class="imperial-units hidden">
               <fieldset>
                 <legend>Weight</legend>
-                <p class="form__error-message not-visible" id="imperialWeightStone-input-error"></p>
-                <p class="form__error-message not-visible" id="imperialWeightPound-input-error"></p>
+                <p class="form__error-message not-visible" id="imperialWeightStone-input-error">
+                  Can't be blank
+                </p>
+                <p class="form__error-message not-visible" id="imperialWeightPound-input-error">
+                  Can't be blank
+                </p>
                 <div class="imperial-group">
                   <p class="sr-only">Enter your weight using stones only, pounds only or both stones and pounds.</p>
                   <label for="imperialWeightStone" class="sr-only">Stones</label>
@@ -180,11 +190,11 @@
       </section>
       <section class="results" aria-label="Understanding BMI">
         <img src="assets/images/image-man-eating.webp" alt="Smiling man holding sushi with chopsticks">
-        <div class="results__header">
+        <div class="results__header container">
           <h2 class="results__title">What your BMI result means</h2>
           <p class="results__subheading">A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a healthy weight may lower your chances of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar content, incorporating ample fruits and vegetables. Additionally, strive for regular physical activity, ideally about 30 minutes daily for five days a week.</p>
         </div>
-        <ul class="results__list">
+        <ul class="results__list container">
           <li class="results__list-item">
             <img src="assets/images/icon-eating.svg" alt="" width="64" height="64">
             <h3>Healthy eating</h3>
@@ -202,7 +212,7 @@
           </li>
         </ul>
       </section>
-      <section class="limits" aria-label="Issues with BMI">
+      <section class="limits container" aria-label="Issues with BMI">
         <div class="limits__header">
           <h2 class="limits__title">Limitations of BMI</h2>
           <p class="limits__subheading">Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>

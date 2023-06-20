@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-SemiBold.ttf") format("truetype");
+}
+:root {
+  --primary-color: hsl(215 31% 21%);
+  --secondary-color: hsl(0 0% 100%);
+  --tertiary-color: hsl(200 24% 88%);
+  --accent-color: hsl(30 5% 44%);
+  --form-label-color: hsl(215 17% 45%);
+  --font-weight--semi-bold: 600;
+  --font-weight--regular: 400;
+  --line-height--heading: 1.1;
+  --line-height--body: 1.5;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--secondary-color);
+  font-family: "Inter", sans-serif;
+  font-weight: var(--font-weight--regular);
+  min-height: 100vh;
+}
+
+ul {
+  list-style-type: none;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  width: 100%;
+}
+
+input {
+  font-family: inherit;
+  display: block;
+}
+
+label {
+  display: block;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.not-visible {
+  height: 0;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.sr-only {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
