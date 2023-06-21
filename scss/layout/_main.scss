@@ -1,3 +1,45 @@
 // ___________________________________________________________________
 // Main Styles
 // ___________________________________________________________________
+
+// Calc Section
+.calc {
+  margin-bottom: 4.5rem;
+}
+
+.calc-wrapper{
+  background: var(--bg-gradient, linear-gradient(315deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%));
+  border-radius: 0 0 35px 35px;
+  padding-top: 2.125rem;
+}
+
+.calc__header {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 1.5rem;
+
+  h1 {
+    color: var(--primary-color);
+    font-size: 3rem;
+    font-weight: var(--font-weight--semi-bold);
+    letter-spacing: -2.4px;
+    line-height: var(--line-height--heading);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .calc__sub-heading {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: var(--line-height--body);
+    margin-bottom: 13.5625rem;
+    text-align: center;
+  }
+}
+
+.logo {
+  width: 2.5rem;
+  margin-bottom: 1.5rem;
+}
