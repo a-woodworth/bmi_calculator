@@ -18,8 +18,8 @@
             <p class="calc__sub-heading">Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
           </div>
           <form class="form" id="calculator" novalidate autocomplete="off" aria-label="Calculate your BMI">
-            <fieldset class="form__radio-group">
-              <legend class="form__radio-title">Enter your details below</legend>
+            <fieldset class="form__group">
+              <legend class="form__title">Enter your details below</legend>
               <div class="radio-input__container">
                 <div class="radio-btn">
                   <input 
@@ -46,7 +46,8 @@
                 <div class="metric-group">
                   <label for="metricHeight">Height</label>
                   <p class="sr-only">In centimeters</p>
-                  <input 
+                  <div class="form__input-wrapper">
+                    <input 
                     class="form__input"
                     type="text"
                     inputmode="numeric"
@@ -55,17 +56,20 @@
                     maxlength="3" 
                     id="metricHeight"
                     name="metricHeight"
-                    placeholder="185"
+                    placeholder="0"
                     aria-invalid="false"
                     aria-describedby="metricHeight-input-error"
                     value=""
                     required>
+                    <p class="form__input-unit">cm</p>
+                  </div>
                 </div>
                 <p class="form__error-message not-visible" id="metricWeight-input-error"></p>
                 <div class="metric-group">
                   <label for="metricWeight">Weight</label>
                   <p class="sr-only">In kilograms</p>
-                  <input 
+                  <div class="form__input-wrapper">
+                    <input 
                     class="form__input"
                     type="text"
                     inputmode="numeric"
@@ -74,11 +78,13 @@
                     maxlength="3" 
                     id="metricWeight"
                     name="metricWeight"
-                    placeholder="80"
+                    placeholder="0"
                     aria-invalid="false"
                     aria-describedby="metricWeight-input-error"
                     value=""
                     required>
+                    <p class="form__input-unit">kg</p>
+                  </div>
                 </div>
               </div>
               <div class="imperial-units hidden">
@@ -93,7 +99,8 @@
                   <div class="imperial-group">
                     <p class="sr-only">Enter your height using feet only, inches only or both feet and inches.</p>
                     <label for="imperialHeightFt" class="sr-only">Feet</label>
-                    <input 
+                    <div class="form__input-wrapper">
+                      <input 
                       class="form__input"
                       type="text"
                       inputmode="numeric"
@@ -106,8 +113,11 @@
                       aria-invalid="false"
                       aria-describedby="imperialHeightFt-input-error"
                       value="">
+                      <p class="form__input-unit">ft</p>
+                    </div>
                     <label for="imperialHeightInch" class="sr-only">Inches</label>
-                    <input 
+                    <div class="form__input-wrapper">
+                      <input 
                       class="form__input"
                       type="text"
                       inputmode="numeric"
@@ -120,6 +130,8 @@
                       aria-invalid="false"
                       aria-describedby="imperialHeightInch-input-error"
                       value="">
+                      <p class="form__input-unit">in</p>
+                    </div>
                   </div>
                 </fieldset>
               </div>
@@ -135,7 +147,8 @@
                   <div class="imperial-group">
                     <p class="sr-only">Enter your weight using stones only, pounds only or both stones and pounds.</p>
                     <label for="imperialWeightStone" class="sr-only">Stones</label>
-                    <input 
+                    <div class="form__input-wrapper">
+                      <input 
                       class="form__input"
                       type="text"
                       inputmode="numeric"
@@ -148,8 +161,11 @@
                       aria-invalid="false"
                       aria-describedby="imperialWeightStone-input-error"
                       value="">
+                      <p class="form__input-unit">st</p>
+                    </div>
                     <label for="imperialWeightPound" class="sr-only">Pounds</label>
-                    <input 
+                    <div class="form__input-wrapper">
+                      <input 
                       class="form__input"
                       type="text"
                       inputmode="numeric"
@@ -162,6 +178,8 @@
                       aria-invalid="false"
                       aria-describedby="imperialWeightPound-input-error"
                       value="">
+                      <p class="form__input-unit">lbs</p>
+                    </div>
                   </div>
                 </fieldset>
               </div>

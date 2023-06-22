@@ -5,6 +5,49 @@
 .form {
   background-color: var(--secondary-color);
   border-radius: 1rem;
-  margin: -10.5625rem 1rem 4.5rem;
+  box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+  max-width: 35.25rem;
+  margin-inline: 1rem;
   padding: 1.5rem;
+}
+
+.form__group {
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+
+.form__title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight--semi-bold);
+  letter-spacing: -1.2px;
+  margin-bottom: 1.5rem;
+}
+
+.form__input,
+.form__input-unit {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight--semi-bold);
+  letter-spacing: -1.2px;
+}
+
+.form__input {
+  border: 1px solid var(--tertiary-color);
+  border-radius: 0.75rem;
+  color: var(--primary-color);
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+}
+
+.form__input-unit {
+  color: var(--accent-color);
+  position: absolute;
+  right: 1.5rem;
+}
+
+.form__input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
