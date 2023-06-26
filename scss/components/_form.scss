@@ -51,3 +51,50 @@
   align-items: center;
   position: relative;
 }
+
+.radio-input__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.radio-btn__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  align-items: center;
+  gap: 1.125rem;
+
+  &:nth-child(2) > label:nth-child(2) {
+   margin-right: 1rem;
+  }
+}
+
+.radio-btn__input {
+  appearance: none;
+  cursor: pointer;
+  height: 2rem;
+  opacity: 0;
+  width: 2rem;
+}
+
+.radio-btn__label {
+  color: var(--text-color);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: var(--font-weight--semi-bold);
+  touch-action: manipulation;
+
+  &::before {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 50%;
+    content: '';
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2rem;
+  }
+}

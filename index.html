@@ -21,31 +21,33 @@
             <fieldset class="form__group">
               <legend class="form__title">Enter your details below</legend>
               <div class="radio-input__container">
-                <div class="radio-btn">
-                  <input 
+                <div class="radio-btn__item">
+                  <input
+                    class="radio-btn__input" 
                     type="radio"
                     id="metric" 
                     name="measurement" 
                     value="metric" 
                     checked>
-                  <label for="metric">Metric</label>
+                  <label class="radio-btn__label" for="metric">Metric</label>
                 </div>
-                <div class="radio-btn">
-                  <input 
+                <div class="radio-btn__item">
+                  <input
+                    class="radio-btn__input" 
                     type="radio"
                     id="imperial" 
                     name="measurement" 
                     value="imperial">
-                  <label for="imperial">Imperial</label>
+                  <label class="radio-btn__label" for="imperial">Imperial</label>
                 </div>
               </div>
               <div class="metric-units">
-                <p class="form__error-message not-visible" id="metricHeight-input-error">
-                  Can't be blank
-                </p>
                 <div class="metric-group">
                   <label for="metricHeight">Height</label>
                   <p class="sr-only">In centimeters</p>
+                  <p class="form__error-message not-visible" id="metricHeight-input-error">
+                    Can't be blank
+                  </p>
                   <div class="form__input-wrapper">
                     <input 
                     class="form__input"
@@ -64,10 +66,12 @@
                     <p class="form__input-unit">cm</p>
                   </div>
                 </div>
-                <p class="form__error-message not-visible" id="metricWeight-input-error"></p>
                 <div class="metric-group">
                   <label for="metricWeight">Weight</label>
                   <p class="sr-only">In kilograms</p>
+                  <p class="form__error-message not-visible" id="metricWeight-input-error">
+                    Can't be blank
+                  </p>
                   <div class="form__input-wrapper">
                     <input 
                     class="form__input"
