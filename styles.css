@@ -99,16 +99,10 @@ a {
   padding: 1.5rem;
 }
 
-.form__group {
-  display: flex;
-  flex-flow: column;
-  gap: 1.5rem;
-}
-
 .form__title {
   font-size: 1.5rem;
   font-weight: var(--font-weight--semi-bold);
-  letter-spacing: -1.2px;
+  letter-spacing: -0.075rem;
   margin-bottom: 1.5rem;
 }
 
@@ -116,7 +110,7 @@ a {
 .form__input-unit {
   font-size: 1.5rem;
   font-weight: var(--font-weight--semi-bold);
-  letter-spacing: -1.2px;
+  letter-spacing: -0.075rem;
 }
 
 .form__input {
@@ -144,6 +138,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .radio-btn__item {
@@ -159,30 +154,77 @@ a {
 
 .radio-btn__input {
   appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--tertiary-color);
+  border-radius: 50%;
   cursor: pointer;
   height: 2rem;
-  opacity: 0;
   width: 2rem;
+  display: grid;
+  place-content: center;
+}
+.radio-btn__input::before {
+  border: 0.46875rem solid var(--accent-color);
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  top: 0.53125rem;
+  left: 0.53125rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+}
+.radio-btn__input:checked {
+  background-color: var(--transparent-blue);
+  border: none;
+}
+.radio-btn__input:checked::before {
+  transform: scale(1);
+}
+.radio-btn__input:hover {
+  border: 1px solid var(--accent-color);
 }
 
 .radio-btn__label {
-  color: var(--text-color);
+  color: var(--primary-color);
   cursor: pointer;
   display: inline-block;
   font-size: 1rem;
   font-weight: var(--font-weight--semi-bold);
   touch-action: manipulation;
 }
-.radio-btn__label::before {
-  background-color: var(--secondary-color);
-  border: 1px solid var(--tertiary-color);
-  border-radius: 50%;
-  content: "";
-  height: 2rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2rem;
+
+.metric-units {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-group label {
+  color: var(--text-color);
+  font-size: 0.875rem;
+  line-height: var(--line-height--body);
+  margin-bottom: 0.5rem;
+}
+
+.form__output {
+  background-color: var(--accent-color);
+  border-radius: 1rem;
+  color: var(--secondary-color);
+  padding: 32px;
+}
+
+.form__output-instructions p:first-child {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight--semi-bold);
+  letter-spacing: -0.075rem;
+  margin-bottom: 1rem;
+}
+.form__output-instructions p:last-child {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight--regular);
+  line-height: var(--line-height--body);
 }
 
 .container {
@@ -230,7 +272,7 @@ a {
   color: var(--primary-color);
   font-size: 3rem;
   font-weight: var(--font-weight--semi-bold);
-  letter-spacing: -2.4px;
+  letter-spacing: -0.15rem;
   line-height: var(--line-height--heading);
   margin-bottom: 1.5rem;
   text-align: center;
