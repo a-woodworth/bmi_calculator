@@ -42,7 +42,7 @@
                 </div>
               </div>
               <div class="metric-units">
-                <div class="metric-group">
+                <div class="metric-group hidden">
                   <label for="metricHeight">Height</label>
                   <p class="sr-only">In centimeters</p>
                   <p class="form__error-message not-visible" id="metricHeight-input-error">
@@ -66,7 +66,7 @@
                     <p class="form__input-unit">cm</p>
                   </div>
                 </div>
-                <div class="metric-group">
+                <div class="metric-group hidden">
                   <label for="metricWeight">Weight</label>
                   <p class="sr-only">In kilograms</p>
                   <p class="form__error-message not-visible" id="metricWeight-input-error">
@@ -91,7 +91,7 @@
                   </div>
                 </div>
               </div>
-              <div class="imperial-units hidden">
+              <div class="imperial-units">
                 <fieldset>
                   <legend>Height</legend>
                   <p class="form__error-message not-visible" id="imperialHeightFt-input-error">
@@ -139,7 +139,7 @@
                   </div>
                 </fieldset>
               </div>
-              <div class="imperial-units hidden">
+              <div class="imperial-units">
                 <fieldset>
                   <legend>Weight</legend>
                   <p class="form__error-message not-visible" id="imperialWeightStone-input-error">
@@ -188,11 +188,11 @@
                 </fieldset>
               </div>
               <div class="form__output">
-                <div class="form__output-instructions" data-js="instructions">
+                <div class="form__output-instructions hidden" data-js="instructions">
                   <p>Welcome!</p>
                   <p>Enter your height and weight and you'll see your BMI result here</p>
                 </div>
-                <div class="form__output-value hidden" data-js="bmi-value">
+                <div class="form__output-value" data-js="bmi-value">
                   <label for="bmi">Your BMI is...</label>
                   <input
                     type="text"
@@ -202,7 +202,7 @@
                     value="23.4"
                     readonly>
                 </div>
-                <div class="form__output-caption hidden" data-js="bmi-caption">
+                <div class="form__output-caption" data-js="bmi-caption">
                   <p>
                     Your BMI suggests you're <span data-js="classification">a healthy weight</span>. Your ideal weight is between <span data-js="range">63.3kgs - 85.2kgs</span>.
                   </p>

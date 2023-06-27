@@ -6,9 +6,12 @@
   background-color: var(--secondary-color);
   border-radius: 1rem;
   box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
-  max-width: 35.25rem;
   margin-inline: 1rem;
   padding: 1.5rem;
+
+  @media (min-width: 48rem) {
+    max-width: 42.875rem;
+  }
 }
 
 .form__title {
@@ -31,6 +34,11 @@
   color: var(--primary-color);
   padding: 1.25rem 1.5rem;
   width: 100%;
+
+  &:hover {
+    border: 1px solid var(--accent-color);
+    cursor: pointer;
+  }
 }
 
 .form__input-unit {
@@ -51,6 +59,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  gap: 1.5rem;
 }
 
 .radio-btn__item {
@@ -58,6 +67,7 @@
   display: grid;
   grid-template-columns: 2rem 1fr;
   align-items: center;
+  flex-basis: 50%;
   gap: 1.125rem;
 
   &:nth-child(2) > label:nth-child(2) {
@@ -111,14 +121,25 @@
   touch-action: manipulation;
 }
 
-.metric-units {
+.metric-units,
+.imperial-group {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1.5rem;
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
 }
 
-.metric-group label {
+.imperial-group {
+  flex-direction: row;
+}
+
+.metric-group label,
+.imperial-units legend {
   color: var(--text-color);
   font-size: 0.875rem;
   line-height: var(--line-height--body);
@@ -129,7 +150,17 @@
   background-color: var(--accent-color);
   border-radius: 1rem;
   color: var(--secondary-color);
-  padding: 32px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+
+  @media (min-width: 48rem) {
+    border-radius: 1rem 4.65625rem 4.65625rem 1rem;
+    flex-flow: row;
+  }
 }
 
 .form__output-instructions {
@@ -144,5 +175,36 @@
     font-size: 0.875rem;
     font-weight: var(--font-weight--regular);
     line-height: var(--line-height--body);
+  }
+}
+
+.form__output-value {
+  label {
+    font-size: 1rem;
+    font-weight: var(--font-weight--semi-bold);
+    line-height: var(--line-height--body);
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    font-size: 3rem;
+    font-weight: var(--font-weight--semi-bold);
+    letter-spacing: -0.15rem;
+    line-height: var(--line-height--heading);
+    width: 100%;
+  }
+}
+
+.form__output-caption {
+  p {
+    font-size: 0.875rem;
+    line-height: var(--line-height--body);
+  }
+
+  span:last-child {
+    font-weight: var(--font-weight--semi-bold);
   }
 }
