@@ -1,4 +1,90 @@
 // ___________________________________________________________________
 // Card Styles
 // ___________________________________________________________________
-  
+
+.card {
+  background-color: var(--secondary-color);
+  box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+  border-radius: 1rem;
+  padding: 1.5rem;
+
+  @media (min-width: 90rem) {
+    max-width: 35ch;
+  }
+}
+
+.card__header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.card__title {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight--semi-bold);
+  letter-spacing: -0.0625rem;
+} 
+
+.card__body {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: var(--line-height--body);
+}
+
+.card-1 {
+  @media (min-width: 48rem) {
+    grid-column: span 2;
+  }
+
+  @media (min-width: 90rem) {
+    grid-column: span 3;
+    justify-self: center;
+    margin-top: 8.5rem;
+  }
+}
+
+.card-2 {
+  @media (min-width: 48rem) {
+    grid-column: span 2;
+  }
+
+  @media (min-width: 90rem) {
+    grid-column: 3 / span 3;
+    justify-self: end;
+  }
+}
+
+.card-3 {
+  @media (min-width: 48rem) {
+    grid-column: span 2;
+  }
+
+  @media (min-width: 90rem) {
+    grid-column: span 3;
+  }
+}
+
+.card-4 {
+  @media (min-width: 48rem) {
+    grid-column: span 2;
+  }
+
+  @media (min-width: 90rem) {
+    grid-column: 1 / span 4;
+    justify-self: end;
+  }
+}
+
+.card-5 {
+  @media (min-width: 48rem) {
+    grid-column: 2 / span 2;
+  }
+
+  @media (min-width: 90rem) {
+    grid-column: 5 / span 4;
+    justify-self: start;
+  }
+}

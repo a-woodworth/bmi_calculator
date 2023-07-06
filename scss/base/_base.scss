@@ -15,7 +15,8 @@
   --secondary-color: hsl(0 0% 100%);
   --tertiary-color: hsl(200 24% 88%);
   --accent-color: hsl(227 92% 58%);
-  --text-color: hsl(215 17% 45%);
+  // --text-color: hsl(215 17% 45%);
+  --text-color: hsl(215 17% 41%); // Darkened color to pass AA contrast ratio
   --transparent-blue: hsl(227 92% 58% / 15%);
   // Text
   --font-weight--semi-bold: 600;
