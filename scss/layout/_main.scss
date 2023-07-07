@@ -61,20 +61,45 @@
 }
 
 // Results Section
-.results {
+.results-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  max-width: 72.5rem;
 
   img {
+    max-width: 35.25rem;
     width: 23.4375rem;
+
+    @media (min-width: 48rem) {
+      margin-left: -4.25rem;
+      width: 25rem;
+    }
+
+    @media (min-width: 90rem) {
+      margin: 0;
+      width: 35.25rem;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4.5rem;
+    margin: 0 auto 4rem auto;
+  }
+
+  @media (min-width: 90rem) {
+    gap: 8rem;
+    margin: 0 auto 6rem auto;
   }
 }
 
 .results__header {
   margin-bottom: 4rem;
+  max-width: 29.0625rem;
+  padding: 3rem 1.5rem 0 1.5rem;
 
   h2 {
     color: var(--primary-color);
@@ -83,7 +108,11 @@
     letter-spacing: -0.1rem;
     line-height: var(--line-height--heading);
     margin-bottom: 2rem;
-    padding-top: 3rem;
+
+    @media (min-width: 90rem) {
+      font-size: 3rem;
+      letter-spacing: -0.15rem;
+    }
   }
 
   .results__subheading {
@@ -91,13 +120,37 @@
     font-size: 1rem;
     line-height: var(--line-height--body);
   }
+
+  @media (min-width: 48rem) {
+    margin-bottom: 0;
+    padding: 0 2.5rem 0 0;
+  }
+
+  @media (min-width: 90rem) {
+    padding: 8rem 0 0 0;
+  }
 }
 
 .results__list {
-  background: linear-gradient(315deg, rgba(214, 230, 254, 0.25) 0%, rgba(214, 252, 254, 0.25) 100%);
+  background: linear-gradient(315deg, rgba(214, 230, 254, 0.25) 0%, rgba(214, 252, 254, 0.00) 100%);
   padding-top: 3.5rem;
   padding-bottom: 1rem;
+  max-width: 87rem;
   width: 100%;
+
+  @media (min-width: 48rem) {
+    padding-top: 3.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  @media (min-width: 90rem) {
+    border-radius: 2.1875rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 4.5rem;
+    padding-bottom: 3.5rem;
+  }
 }
 
 .results__list-item {
@@ -119,12 +172,26 @@
     font-weight: var(--font-weight--semi-bold);
     letter-spacing: -0.075rem;
     line-height: var(--line-height--heading);
+    margin-bottom: 1.5rem;
   }
 
   p {
     color: var(--text-color);
     font-size: 1rem;
     line-height: var(--line-height--body);
+  }
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 90rem) {
+    flex-direction: column;
+    align-items: start;
+    max-width: 22.8125rem;
   }
 }
 
