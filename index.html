@@ -11,210 +11,213 @@
   <body>
     <main>
       <section class="calc" aria-label="BMI calculator">
-        <div class="calc-wrapper">
-          <div class="calc__header">
-            <a href="#"><img class="logo" src="assets/images/logo.svg" alt="Healthy Apps logo. Click for home."></a>
-            <h1 class="calc__title">Body Mass Index Calculator</h1>
-            <p class="calc__sub-heading">Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
+        <div class="calc-background">
+          <a href="#" class="logo-link"><img class="logo" src="assets/images/logo.svg" alt="Healthy Apps logo. Click for home."></a>
+          <div class="calc-wrapper">
+            <div class="calc__header">
+              <h1 class="calc__title">Body Mass Index Calculator</h1>
+              <p class="calc__sub-heading">Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
+            </div>
+            <form class="form" id="calculator" novalidate autocomplete="off" aria-label="Calculate your BMI">
+              <fieldset class="form__group">
+                <legend class="form__title">Enter your details below</legend>
+                <div class="radio-input__container">
+                  <div class="radio-btn__item">
+                    <input
+                      class="radio-btn__input" 
+                      type="radio"
+                      id="metric" 
+                      name="measurement" 
+                      value="metric" 
+                      checked>
+                    <label class="radio-btn__label" for="metric">Metric</label>
+                  </div>
+                  <div class="radio-btn__item">
+                    <input
+                      class="radio-btn__input" 
+                      type="radio"
+                      id="imperial" 
+                      name="measurement" 
+                      value="imperial">
+                    <label class="radio-btn__label" for="imperial">Imperial</label>
+                  </div>
+                </div>
+                <div class="metric-units">
+                  <div class="metric-group">
+                    <label for="metricHeight">Height</label>
+                    <p class="sr-only">In centimeters</p>
+                    <p class="form__error-message not-visible" id="metricHeight-input-error">
+                      Can't be blank
+                    </p>
+                    <div class="form__input-wrapper">
+                      <input 
+                      class="form__input"
+                      type="text"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      spellcheck="false"
+                      maxlength="3" 
+                      id="metricHeight"
+                      name="metricHeight"
+                      placeholder="0"
+                      aria-invalid="false"
+                      aria-describedby="metricHeight-input-error"
+                      value=""
+                      required>
+                      <p class="form__input-unit">cm</p>
+                    </div>
+                  </div>
+                  <div class="metric-group">
+                    <label for="metricWeight">Weight</label>
+                    <p class="sr-only">In kilograms</p>
+                    <p class="form__error-message not-visible" id="metricWeight-input-error">
+                      Can't be blank
+                    </p>
+                    <div class="form__input-wrapper">
+                      <input 
+                      class="form__input"
+                      type="text"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      spellcheck="false"
+                      maxlength="3" 
+                      id="metricWeight"
+                      name="metricWeight"
+                      placeholder="0"
+                      aria-invalid="false"
+                      aria-describedby="metricWeight-input-error"
+                      value=""
+                      required>
+                      <p class="form__input-unit">kg</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="imperial-units hidden">
+                  <fieldset>
+                    <legend>Height</legend>
+                    <p class="form__error-message not-visible" id="imperialHeightFt-input-error">
+                      Can't be blank
+                    </p>
+                    <p class="form__error-message not-visible" id="imperialHeightInch-input-error">
+                      Can't be blank
+                    </p>
+                    <div class="imperial-group">
+                      <p class="sr-only">Enter your height using feet only, inches only or both feet and inches.</p>
+                      <label for="imperialHeightFt" class="sr-only">Feet</label>
+                      <div class="form__input-wrapper">
+                        <input 
+                        class="form__input"
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        spellcheck="false"
+                        maxlength="1" 
+                        id="imperialHeightFt"
+                        name="imperialHeightFt"
+                        placeholder="0"
+                        aria-invalid="false"
+                        aria-describedby="imperialHeightFt-input-error"
+                        value="">
+                        <p class="form__input-unit">ft</p>
+                      </div>
+                      <label for="imperialHeightInch" class="sr-only">Inches</label>
+                      <div class="form__input-wrapper">
+                        <input 
+                        class="form__input"
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        spellcheck="false"
+                        maxlength="2"
+                        id="imperialHeightInch"
+                        name="imperialHeightInch"
+                        placeholder="0"
+                        aria-invalid="false"
+                        aria-describedby="imperialHeightInch-input-error"
+                        value="">
+                        <p class="form__input-unit">in</p>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="imperial-units hidden">
+                  <fieldset>
+                    <legend>Weight</legend>
+                    <p class="form__error-message not-visible" id="imperialWeightStone-input-error">
+                      Can't be blank
+                    </p>
+                    <p class="form__error-message not-visible" id="imperialWeightPound-input-error">
+                      Can't be blank
+                    </p>
+                    <div class="imperial-group">
+                      <p class="sr-only">Enter your weight using stones only, pounds only or both stones and pounds.</p>
+                      <label for="imperialWeightStone" class="sr-only">Stones</label>
+                      <div class="form__input-wrapper">
+                        <input 
+                        class="form__input"
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        spellcheck="false"
+                        maxlength="2"
+                        id="imperialWeightStone"
+                        name="imperialWeightStone"
+                        placeholder="0"
+                        aria-invalid="false"
+                        aria-describedby="imperialWeightStone-input-error"
+                        value="">
+                        <p class="form__input-unit">st</p>
+                      </div>
+                      <label for="imperialWeightPound" class="sr-only">Pounds</label>
+                      <div class="form__input-wrapper">
+                        <input 
+                        class="form__input"
+                        type="text"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        spellcheck="false"
+                        maxlength="3"
+                        id="imperialWeightPound"
+                        name="imperialWeightPound"
+                        placeholder="0"
+                        aria-invalid="false"
+                        aria-describedby="imperialWeightPound-input-error"
+                        value="">
+                        <p class="form__input-unit">lbs</p>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form__output">
+                  <div class="form__output-instructions" data-js="instructions">
+                    <p>Welcome!</p>
+                    <p>Enter your height and weight and you'll see your BMI result here</p>
+                  </div>
+                  <div class="form__output-value hidden" data-js="bmi-value">
+                    <label for="bmi">Your BMI is...</label>
+                    <input
+                      type="text"
+                      id="bmi"
+                      name="bmi"
+                      data-js="score"
+                      value="23.4"
+                      readonly>
+                  </div>
+                  <div class="form__output-caption hidden" data-js="bmi-caption">
+                    <p>
+                      Your BMI suggests you're <span data-js="classification">a healthy weight</span>. Your ideal weight is between <span data-js="range">63.3kgs - 85.2kgs</span>.
+                    </p>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
           </div>
-          <form class="form" id="calculator" novalidate autocomplete="off" aria-label="Calculate your BMI">
-            <fieldset class="form__group">
-              <legend class="form__title">Enter your details below</legend>
-              <div class="radio-input__container">
-                <div class="radio-btn__item">
-                  <input
-                    class="radio-btn__input" 
-                    type="radio"
-                    id="metric" 
-                    name="measurement" 
-                    value="metric" 
-                    checked>
-                  <label class="radio-btn__label" for="metric">Metric</label>
-                </div>
-                <div class="radio-btn__item">
-                  <input
-                    class="radio-btn__input" 
-                    type="radio"
-                    id="imperial" 
-                    name="measurement" 
-                    value="imperial">
-                  <label class="radio-btn__label" for="imperial">Imperial</label>
-                </div>
-              </div>
-              <div class="metric-units">
-                <div class="metric-group">
-                  <label for="metricHeight">Height</label>
-                  <p class="sr-only">In centimeters</p>
-                  <p class="form__error-message not-visible" id="metricHeight-input-error">
-                    Can't be blank
-                  </p>
-                  <div class="form__input-wrapper">
-                    <input 
-                    class="form__input"
-                    type="text"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
-                    spellcheck="false"
-                    maxlength="3" 
-                    id="metricHeight"
-                    name="metricHeight"
-                    placeholder="0"
-                    aria-invalid="false"
-                    aria-describedby="metricHeight-input-error"
-                    value=""
-                    required>
-                    <p class="form__input-unit">cm</p>
-                  </div>
-                </div>
-                <div class="metric-group">
-                  <label for="metricWeight">Weight</label>
-                  <p class="sr-only">In kilograms</p>
-                  <p class="form__error-message not-visible" id="metricWeight-input-error">
-                    Can't be blank
-                  </p>
-                  <div class="form__input-wrapper">
-                    <input 
-                    class="form__input"
-                    type="text"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
-                    spellcheck="false"
-                    maxlength="3" 
-                    id="metricWeight"
-                    name="metricWeight"
-                    placeholder="0"
-                    aria-invalid="false"
-                    aria-describedby="metricWeight-input-error"
-                    value=""
-                    required>
-                    <p class="form__input-unit">kg</p>
-                  </div>
-                </div>
-              </div>
-              <div class="imperial-units hidden">
-                <fieldset>
-                  <legend>Height</legend>
-                  <p class="form__error-message not-visible" id="imperialHeightFt-input-error">
-                    Can't be blank
-                  </p>
-                  <p class="form__error-message not-visible" id="imperialHeightInch-input-error">
-                    Can't be blank
-                  </p>
-                  <div class="imperial-group">
-                    <p class="sr-only">Enter your height using feet only, inches only or both feet and inches.</p>
-                    <label for="imperialHeightFt" class="sr-only">Feet</label>
-                    <div class="form__input-wrapper">
-                      <input 
-                      class="form__input"
-                      type="text"
-                      inputmode="numeric"
-                      pattern="[0-9]*"
-                      spellcheck="false"
-                      maxlength="1" 
-                      id="imperialHeightFt"
-                      name="imperialHeightFt"
-                      placeholder="0"
-                      aria-invalid="false"
-                      aria-describedby="imperialHeightFt-input-error"
-                      value="">
-                      <p class="form__input-unit">ft</p>
-                    </div>
-                    <label for="imperialHeightInch" class="sr-only">Inches</label>
-                    <div class="form__input-wrapper">
-                      <input 
-                      class="form__input"
-                      type="text"
-                      inputmode="numeric"
-                      pattern="[0-9]*"
-                      spellcheck="false"
-                      maxlength="2"
-                      id="imperialHeightInch"
-                      name="imperialHeightInch"
-                      placeholder="0"
-                      aria-invalid="false"
-                      aria-describedby="imperialHeightInch-input-error"
-                      value="">
-                      <p class="form__input-unit">in</p>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="imperial-units hidden">
-                <fieldset>
-                  <legend>Weight</legend>
-                  <p class="form__error-message not-visible" id="imperialWeightStone-input-error">
-                    Can't be blank
-                  </p>
-                  <p class="form__error-message not-visible" id="imperialWeightPound-input-error">
-                    Can't be blank
-                  </p>
-                  <div class="imperial-group">
-                    <p class="sr-only">Enter your weight using stones only, pounds only or both stones and pounds.</p>
-                    <label for="imperialWeightStone" class="sr-only">Stones</label>
-                    <div class="form__input-wrapper">
-                      <input 
-                      class="form__input"
-                      type="text"
-                      inputmode="numeric"
-                      pattern="[0-9]*"
-                      spellcheck="false"
-                      maxlength="2"
-                      id="imperialWeightStone"
-                      name="imperialWeightStone"
-                      placeholder="0"
-                      aria-invalid="false"
-                      aria-describedby="imperialWeightStone-input-error"
-                      value="">
-                      <p class="form__input-unit">st</p>
-                    </div>
-                    <label for="imperialWeightPound" class="sr-only">Pounds</label>
-                    <div class="form__input-wrapper">
-                      <input 
-                      class="form__input"
-                      type="text"
-                      inputmode="numeric"
-                      pattern="[0-9]*"
-                      spellcheck="false"
-                      maxlength="3"
-                      id="imperialWeightPound"
-                      name="imperialWeightPound"
-                      placeholder="0"
-                      aria-invalid="false"
-                      aria-describedby="imperialWeightPound-input-error"
-                      value="">
-                      <p class="form__input-unit">lbs</p>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="form__output">
-                <div class="form__output-instructions" data-js="instructions">
-                  <p>Welcome!</p>
-                  <p>Enter your height and weight and you'll see your BMI result here</p>
-                </div>
-                <div class="form__output-value hidden" data-js="bmi-value">
-                  <label for="bmi">Your BMI is...</label>
-                  <input
-                    type="text"
-                    id="bmi"
-                    name="bmi"
-                    data-js="score"
-                    value="23.4"
-                    readonly>
-                </div>
-                <div class="form__output-caption hidden" data-js="bmi-caption">
-                  <p>
-                    Your BMI suggests you're <span data-js="classification">a healthy weight</span>. Your ideal weight is between <span data-js="range">63.3kgs - 85.2kgs</span>.
-                  </p>
-                </div>
-              </div>
-            </fieldset>
-          </form>
         </div>
       </section>
       <section class="results" aria-label="Understanding BMI">
         <div class="results-wrapper">
-          <img src="assets/images/image-man-eating.webp" alt="Smiling man holding sushi with chopsticks">
+          <img class="bg-shape-left" src="assets/images/pattern-curved-line-left.svg" alt="" aria-hidden="true">
+          <img class="results__image" src="assets/images/image-man-eating.webp" alt="Smiling man holding sushi with chopsticks">
           <div class="results__header">
             <h2 class="results__title">What your BMI result means</h2>
             <p class="results__subheading">A BMI range of 18.5 to 24.9 is considered a 'healthy weight.' Maintaining a healthy weight may lower your chances of experiencing health issues later on, such as obesity and type 2 diabetes. Aim for a nutritious diet with reduced fat and sugar content, incorporating ample fruits and vegetables. Additionally, strive for regular physical activity, ideally about 30 minutes daily for five days a week.</p>
