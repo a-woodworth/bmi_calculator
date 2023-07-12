@@ -1,7 +1,3 @@
-@font-face {
-  font-family: "Inter";
-  src: url("assets/fonts/Inter-Regular.ttf") format("truetype"), url("assets/fonts/Inter-SemiBold.ttf") format("truetype");
-}
 :root {
   --primary-color: hsl(215 31% 21%);
   --secondary-color: hsl(0 0% 100%);
