@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Inter";
-  src: local("Inter"), url("assets/fonts/Inter-Regular.ttf") format("truetype"), url("assets/fonts/Inter-SemiBold.ttf") format("truetype");
+  src: url("assets/fonts/Inter-Regular.ttf") format("truetype"), url("assets/fonts/Inter-SemiBold.ttf") format("truetype");
 }
 :root {
   --primary-color: hsl(215 31% 21%);
@@ -32,6 +32,49 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: var(--font-weight--regular);
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
+  font-weight: var(--font-weight--semi-bold);
+  line-height: var(--line-height--heading);
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: -0.15rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+@media (min-width: 90rem) {
+  h1 {
+    text-align: left;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.1rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 90rem) {
+  h2 {
+    font-size: 3rem;
+    letter-spacing: -0.15rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.075rem;
+}
+
+p {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: var(--line-height--body);
 }
 
 ul {
@@ -107,7 +150,7 @@ a {
   justify-content: start;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .card__title {
@@ -348,12 +391,14 @@ a {
 }
 
 .form__output-instructions p:first-child {
+  color: var(--secondary-color);
   font-size: 1.5rem;
   font-weight: var(--font-weight--semi-bold);
   letter-spacing: -0.075rem;
   margin-bottom: 1rem;
 }
 .form__output-instructions p:last-child {
+  color: var(--secondary-color);
   font-size: 0.875rem;
   font-weight: var(--font-weight--regular);
   line-height: var(--line-height--body);
@@ -377,6 +422,7 @@ a {
 }
 
 .form__output-caption p {
+  color: var(--secondary-color);
   font-size: 0.875rem;
   line-height: var(--line-height--body);
 }
@@ -433,7 +479,6 @@ a {
 .logo-link {
   display: flex;
   justify-content: center;
-  max-width: 90rem;
   padding: 2rem 0 1.5rem 0;
 }
 @media (min-width: 48rem) {
@@ -443,8 +488,8 @@ a {
 }
 @media (min-width: 90rem) {
   .logo-link {
+    justify-content: start;
     padding: 4.5rem 0 1.75rem 1.5rem;
-    max-width: 90rem;
   }
 }
 
@@ -478,28 +523,12 @@ a {
   max-width: 35.25rem;
   padding-inline: 1.5rem;
 }
-.calc__header h1 {
-  color: var(--primary-color);
-  font-size: 3rem;
-  font-weight: var(--font-weight--semi-bold);
-  letter-spacing: -0.15rem;
-  line-height: var(--line-height--heading);
-  margin-bottom: 1.5rem;
+
+.calc__sub-heading {
   text-align: center;
 }
 @media (min-width: 90rem) {
-  .calc__header h1 {
-    text-align: left;
-  }
-}
-.calc__header .calc__sub-heading {
-  color: var(--text-color);
-  font-size: 1rem;
-  line-height: var(--line-height--body);
-  text-align: center;
-}
-@media (min-width: 90rem) {
-  .calc__header .calc__sub-heading {
+  .calc__sub-heading {
     text-align: left;
   }
 }
@@ -541,20 +570,17 @@ a {
 }
 
 .results__image {
-  max-width: 23.4375rem;
-  width: 20rem;
+  width: 23.4375rem;
 }
 @media (min-width: 48rem) {
   .results__image {
     margin-left: -4.25rem;
-    max-width: 25rem;
     width: 25rem;
   }
 }
 @media (min-width: 90rem) {
   .results__image {
     margin: 0;
-    max-width: 35.25rem;
     width: 35.25rem;
   }
 }
@@ -563,25 +589,6 @@ a {
   margin-bottom: 4rem;
   max-width: 29.0625rem;
   padding: 3rem 1.5rem 0 1.5rem;
-}
-.results__header h2 {
-  color: var(--primary-color);
-  font-size: 2rem;
-  font-weight: var(--font-weight--semi-bold);
-  letter-spacing: -0.1rem;
-  line-height: var(--line-height--heading);
-  margin-bottom: 2rem;
-}
-@media (min-width: 90rem) {
-  .results__header h2 {
-    font-size: 3rem;
-    letter-spacing: -0.15rem;
-  }
-}
-.results__header .results__subheading {
-  color: var(--text-color);
-  font-size: 1rem;
-  line-height: var(--line-height--body);
 }
 @media (min-width: 48rem) {
   .results__header {
@@ -632,17 +639,7 @@ a {
   margin-bottom: 0.5rem;
 }
 .results__list-item h3 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  font-weight: var(--font-weight--semi-bold);
-  letter-spacing: -0.075rem;
-  line-height: var(--line-height--heading);
   margin-bottom: 1.5rem;
-}
-.results__list-item p {
-  color: var(--text-color);
-  font-size: 1rem;
-  line-height: var(--line-height--body);
 }
 @media (min-width: 48rem) {
   .results__list-item {
@@ -688,25 +685,14 @@ a {
   padding-top: 3.5rem;
 }
 .limits__header h2 {
-  color: var(--primary-color);
-  font-size: 2rem;
-  font-weight: var(--font-weight--semi-bold);
-  letter-spacing: -0.1rem;
-  line-height: var(--line-height--heading);
-  margin-bottom: 2rem;
   text-align: center;
 }
 @media (min-width: 90rem) {
   .limits__header h2 {
-    font-size: 3rem;
-    letter-spacing: -0.15rem;
     text-align: left;
   }
 }
 .limits__header p {
-  color: var(--text-color);
-  font-size: 1rem;
-  line-height: var(--line-height--body);
   text-align: center;
 }
 @media (min-width: 90rem) {

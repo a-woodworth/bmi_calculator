@@ -169,6 +169,7 @@
 
 .form__output-instructions {
   p:first-child {
+    color: var(--secondary-color);
     font-size: 1.5rem;
     font-weight: var(--font-weight--semi-bold);
     letter-spacing: -0.075rem;
@@ -176,6 +177,7 @@
   }
 
   p:last-child {
+    color: var(--secondary-color);
     font-size: 0.875rem;
     font-weight: var(--font-weight--regular);
     line-height: var(--line-height--body);
@@ -204,6 +206,7 @@
 
 .form__output-caption {
   p {
+    color: var(--secondary-color);
     font-size: 0.875rem;
     line-height: var(--line-height--body);
   }

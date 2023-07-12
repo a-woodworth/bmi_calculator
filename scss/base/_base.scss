@@ -4,8 +4,7 @@
 
 @font-face {
   font-family: 'Inter';
-  src: local('Inter'),
-    url('assets/fonts/Inter-Regular.ttf') format('truetype'), 
+  src: url('assets/fonts/Inter-Regular.ttf') format('truetype'), 
     url('assets/fonts/Inter-SemiBold.ttf') format('truetype');
 }
 
@@ -15,7 +14,6 @@
   --secondary-color: hsl(0 0% 100%);
   --tertiary-color: hsl(200 24% 88%);
   --accent-color: hsl(227 92% 58%);
-  // --text-color: hsl(215 17% 45%);
   --text-color: hsl(215 17% 41%); // Darkened color to pass AA contrast ratio
   --transparent-blue: hsl(227 92% 58% / 15%);
   // Text
@@ -43,6 +41,47 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: var(--font-weight--regular);
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
+  font-weight: var(--font-weight--semi-bold);
+  line-height: var(--line-height--heading);
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: -0.15rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+
+  @media (min-width: 90rem) {
+    text-align: left;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.1rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: 90rem) {
+    font-size: 3rem;
+    letter-spacing: -0.15rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.075rem;
+}
+
+p {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: var(--line-height--body);
 }
 
 ul {
