@@ -6,14 +6,10 @@
   background-color: var(--secondary-color);
   border-radius: 1rem;
   box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
-  margin-inline: 1rem;
+  max-width: 42.875rem;
   padding: 1.5rem;
 
-  @media (min-width: 48rem) {
-    max-width: 42.875rem;
-  }
-
-  @media (min-width: 48rem) {
+  @media (min-width: 90rem) {
     max-width: 35.25rem;
   }
 }
@@ -132,7 +128,7 @@
   gap: 1rem;
   margin-bottom: 1.5rem;
 
-  @media (min-width: 48rem) {
+  @media (min-width: 42.875rem) {
     flex-direction: row;
     gap: 1.5rem;
   }
@@ -161,7 +157,7 @@
   padding: 2rem;
   width: 100%;
 
-  @media (min-width: 48rem) {
+  @media (min-width: 42.875rem) {
     border-radius: 1rem 4.65625rem 4.65625rem 1rem;
     flex-flow: row;
   }

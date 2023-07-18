@@ -63,6 +63,7 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 3rem;
+  padding-inline: 1.5rem;
 
   @media (min-width: 90rem) {
     flex-direction: row;
@@ -70,12 +71,7 @@
 }
 
 .calc__header {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
   max-width: 35.25rem;
-  padding-inline: 1.5rem;
 }
 
 .calc__sub-heading {
