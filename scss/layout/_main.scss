@@ -21,7 +21,7 @@
   background: linear-gradient(315deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%);
   border-radius: 0 0 35px 35px;
   content: '';
-  height: 40rem;
+  height: 46rem;
   width: 100%;
   position: absolute;
   top: 0;
@@ -67,11 +67,16 @@
 
   @media (min-width: 90rem) {
     flex-direction: row;
+    align-items: start;
   }
 }
 
 .calc__header {
   max-width: 35.25rem;
+
+  @media (min-width: 90rem) {
+    padding-top: 6rem;
+  }
 }
 
 .calc__sub-heading {
