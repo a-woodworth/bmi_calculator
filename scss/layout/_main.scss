@@ -8,7 +8,6 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4.5rem;
   max-width: 90rem;
   position: relative;
 
@@ -21,7 +20,7 @@
   background: linear-gradient(315deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%);
   border-radius: 0 0 35px 35px;
   content: '';
-  height: 46rem;
+  height: 44rem;
   width: 100%;
   position: absolute;
   top: 0;
@@ -94,6 +93,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 72.5rem;
+  padding-top: 4.5rem;
   position: relative;
 
   @media (min-width: 48rem) {
@@ -101,12 +101,12 @@
     justify-content: center;
     gap: 4.5rem;
     margin: 0 auto 4rem auto;
+    padding-top: 6rem;
   }
 
   @media (min-width: 90rem) {
     gap: 8rem;
-    margin: 0 auto 6rem auto;
-    padding-top: 4rem;
+    margin: 2rem auto 6rem auto;
   }
 }
 
