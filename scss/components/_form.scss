@@ -48,6 +48,15 @@
     cursor: pointer;
     transition: 0.3s ease-in;
   }
+
+  &:invalid:where([aria-invalid="true"]) {
+    border: 1px solid var(--error-color);
+  }
+}
+
+.form__error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
 }
 
 .form__input-unit {
@@ -164,6 +173,15 @@ div.imperial-units:nth-child(4) {
   font-size: 0.875rem;
   line-height: var(--line-height--body);
   margin-bottom: 0.5rem;
+}
+
+.metric-group label {
+  display: flex;
+  justify-content: space-between;
+
+  span:last-child  {
+    align-self: flex-end;
+  }
 }
 
 .form__output {

@@ -4,6 +4,7 @@
   --tertiary-color: hsl(200 24% 88%);
   --accent-color: hsl(227 92% 58%);
   --text-color: hsl(215 17% 41%);
+  --error-color: hsl(331 100% 45%);
   --transparent-blue: hsl(227 92% 58% / 15%);
   --font-weight--semi-bold: 600;
   --font-weight--regular: 400;
@@ -271,6 +272,14 @@ a {
   cursor: pointer;
   transition: 0.3s ease-in;
 }
+.form__input:invalid:where([aria-invalid=true]) {
+  border: 1px solid var(--error-color);
+}
+
+.form__error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+}
 
 .form__input-unit {
   color: var(--accent-color);
@@ -385,6 +394,14 @@ div.imperial-units:nth-child(4) {
   font-size: 0.875rem;
   line-height: var(--line-height--body);
   margin-bottom: 0.5rem;
+}
+
+.metric-group label {
+  display: flex;
+  justify-content: space-between;
+}
+.metric-group label span:last-child {
+  align-self: flex-end;
 }
 
 .form__output {

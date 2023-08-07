@@ -48,11 +48,10 @@
                 </div>
                 <div class="metric-units">
                   <div class="metric-group">
-                    <label for="metricHeight">Height</label>
+                    <label for="metricHeight">
+                      <span>Height</span><span class="form__error-message not-visible" id="metricHeight-error"></span>
+                    </label>
                     <p class="sr-only">In centimeters</p>
-                    <p class="form__error-message not-visible" id="metricHeight-input-error">
-                      Can't be blank
-                    </p>
                     <div class="form__input-wrapper">
                       <input 
                       class="form__input"
@@ -65,18 +64,17 @@
                       name="metricHeight"
                       placeholder="0"
                       aria-invalid="false"
-                      aria-describedby="metricHeight-input-error"
+                      aria-describedby="metricHeight-error"
                       value=""
                       required>
                       <p class="form__input-unit">cm</p>
                     </div>
                   </div>
                   <div class="metric-group">
-                    <label for="metricWeight">Weight</label>
+                    <label for="metricWeight">
+                      <span>Weight</span><span class="form__error-message not-visible" id="metricWeight-error"></span>
+                    </label>
                     <p class="sr-only">In kilograms</p>
-                    <p class="form__error-message not-visible" id="metricWeight-input-error">
-                      Can't be blank
-                    </p>
                     <div class="form__input-wrapper">
                       <input 
                       class="form__input"
@@ -89,7 +87,7 @@
                       name="metricWeight"
                       placeholder="0"
                       aria-invalid="false"
-                      aria-describedby="metricWeight-input-error"
+                      aria-describedby="metricWeight-error"
                       value=""
                       required>
                       <p class="form__input-unit">kg</p>
@@ -99,15 +97,13 @@
                 <div class="imperial-units hidden">
                   <fieldset>
                     <legend>Height</legend>
-                    <p class="form__error-message not-visible" id="imperialHeightFt-input-error">
-                      Can't be blank
-                    </p>
-                    <p class="form__error-message not-visible" id="imperialHeightInch-input-error">
-                      Can't be blank
-                    </p>
+                    <p class="form__error-message not-visible" data-js="invalid-total-height"
+                      aria-live="polite" aria-atomic="true"></p>
+                    <p class="form__error-message not-visible" id="imperialHeightFeet-error"></p>
+                    <p class="form__error-message not-visible" id="imperialHeightInch-error"></p>
                     <div class="imperial-group">
                       <p class="sr-only">Enter your height using feet only, inches only or both feet and inches.</p>
-                      <label for="imperialHeightFt" class="sr-only">Feet</label>
+                      <label for="imperialHeightFeet" class="sr-only">Feet</label>
                       <div class="form__input-wrapper">
                         <input 
                         class="form__input"
@@ -116,12 +112,13 @@
                         pattern="[0-9]*"
                         spellcheck="false"
                         maxlength="1" 
-                        id="imperialHeightFt"
-                        name="imperialHeightFt"
+                        id="imperialHeightFeet"
+                        name="imperialHeightFeet"
                         placeholder="0"
                         aria-invalid="false"
-                        aria-describedby="imperialHeightFt-input-error"
-                        value="">
+                        aria-describedby="imperialHeightFeet-error"
+                        value=""
+                        required>
                         <p class="form__input-unit">ft</p>
                       </div>
                       <label for="imperialHeightInch" class="sr-only">Inches</label>
@@ -137,8 +134,9 @@
                         name="imperialHeightInch"
                         placeholder="0"
                         aria-invalid="false"
-                        aria-describedby="imperialHeightInch-input-error"
-                        value="">
+                        aria-describedby="imperialHeightInch-error"
+                        value=""
+                        required>
                         <p class="form__input-unit">in</p>
                       </div>
                     </div>
@@ -147,10 +145,12 @@
                 <div class="imperial-units hidden">
                   <fieldset>
                     <legend>Weight</legend>
-                    <p class="form__error-message not-visible" id="imperialWeightStone-input-error">
+                    <p class="form__error-message not-visible" data-js="invalid-total-weight"
+                      aria-live="polite" aria-atomic="true"></p>
+                    <p class="form__error-message not-visible" id="imperialWeightStone-error">
                       Can't be blank
                     </p>
-                    <p class="form__error-message not-visible" id="imperialWeightPound-input-error">
+                    <p class="form__error-message not-visible" id="imperialWeightPound-error">
                       Can't be blank
                     </p>
                     <div class="imperial-group">
@@ -168,8 +168,9 @@
                         name="imperialWeightStone"
                         placeholder="0"
                         aria-invalid="false"
-                        aria-describedby="imperialWeightStone-input-error"
-                        value="">
+                        aria-describedby="imperialWeightStone-error"
+                        value=""
+                        required>
                         <p class="form__input-unit">st</p>
                       </div>
                       <label for="imperialWeightPound" class="sr-only">Pounds</label>
@@ -185,8 +186,9 @@
                         name="imperialWeightPound"
                         placeholder="0"
                         aria-invalid="false"
-                        aria-describedby="imperialWeightPound-input-error"
-                        value="">
+                        aria-describedby="imperialWeightPound-error"
+                        value=""
+                        required>
                         <p class="form__input-unit">lbs</p>
                       </div>
                     </div>
@@ -197,19 +199,19 @@
                     <p>Welcome!</p>
                     <p>Enter your height and weight and you'll see your BMI result here</p>
                   </div>
-                  <div class="form__output-value hidden" data-js="bmi-value">
+                  <div class="form__output-value hidden" data-js="bmi-value" 
+                    aria-live="polite" aria-atomic="true">
                     <label for="bmi">Your BMI is...</label>
                     <input
                       type="text"
                       id="bmi"
                       name="bmi"
-                      data-js="score"
                       value=""
                       readonly>
                   </div>
                   <div class="form__output-caption hidden" data-js="bmi-caption">
                     <p>
-                      Your BMI suggests you're <span data-js="classification">a healthy weight</span>. Your ideal weight is between <span data-js="range">63.3kgs - 85.2kgs</span>.
+                      Your BMI suggests you're <span data-js="classification">a healthy weight</span>. Your ideal weight is between <span data-js="range"></span>.
                     </p>
                   </div>
                 </div>
@@ -294,6 +296,7 @@
         </article>
       </section>
     </main>
-    <script src="app.js"></script>
+    <script src="js/errmsgs.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
