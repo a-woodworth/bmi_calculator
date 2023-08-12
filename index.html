@@ -97,8 +97,6 @@
                 <div class="imperial-units hidden">
                   <fieldset>
                     <legend>Height</legend>
-                    <p class="form__error-message not-visible" data-js="invalid-total-height"
-                      aria-live="polite" aria-atomic="true"></p>
                     <p class="form__error-message not-visible" id="imperialHeightFeet-error"></p>
                     <p class="form__error-message not-visible" id="imperialHeightInch-error"></p>
                     <div class="imperial-group">
@@ -145,14 +143,8 @@
                 <div class="imperial-units hidden">
                   <fieldset>
                     <legend>Weight</legend>
-                    <p class="form__error-message not-visible" data-js="invalid-total-weight"
-                      aria-live="polite" aria-atomic="true"></p>
-                    <p class="form__error-message not-visible" id="imperialWeightStone-error">
-                      Can't be blank
-                    </p>
-                    <p class="form__error-message not-visible" id="imperialWeightPound-error">
-                      Can't be blank
-                    </p>
+                    <p class="form__error-message not-visible" id="imperialWeightStone-error"></p>
+                    <p class="form__error-message not-visible" id="imperialWeightPound-error"></p>
                     <div class="imperial-group">
                       <p class="sr-only">Enter your weight using stones only, pounds only or both stones and pounds.</p>
                       <label for="imperialWeightStone" class="sr-only">Stones</label>
@@ -199,15 +191,16 @@
                     <p>Welcome!</p>
                     <p>Enter your height and weight and you'll see your BMI result here</p>
                   </div>
-                  <div class="form__output-value hidden" data-js="bmi-value" 
-                    aria-live="polite" aria-atomic="true">
-                    <label for="bmi">Your BMI is...</label>
+                  <div class="form__output-value hidden" data-js="bmi-value">
+                    <label for="bmi" aria-hidden="true">Your BMI is...</label>
                     <input
                       type="text"
                       id="bmi"
                       name="bmi"
                       value=""
-                      readonly>
+                      readonly
+                      aria-describedby="description">
+                      <p id="description" class="sr-only" aria-live="polite" aria-atomic="true" data-js="aria-bmi-output"></p>
                   </div>
                   <div class="form__output-caption hidden" data-js="bmi-caption">
                     <p>

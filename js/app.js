@@ -4,11 +4,12 @@ const metricInputs = [metricHeight, metricWeight];
 const imperialInputs = 
   [imperialHeightFeet, imperialHeightInch, imperialWeightStone, imperialWeightPound];
 const instructions = document.querySelector('[data-js="instructions"]');
-const bmiValueText = document.querySelector('[data-js="bmi-value"]');
-const bmiCaption = document.querySelector('[data-js="bmi-caption"]'); 
+const bmiValueBlock = document.querySelector('[data-js="bmi-value"]');
+const bmiCaptionBlock = document.querySelector('[data-js="bmi-caption"]'); 
 const bmi = bmiForm.elements.bmi;
-const bmiRange = document.querySelector('[data-js="range"]');
+const bmiWeightRange = document.querySelector('[data-js="range"]');
 const bmiWeightClass = document.querySelector('[data-js="classification"]');
+const ariaForBMI = document.querySelector('[data-js="aria-bmi-output"]');
 const lowBMI = 18.5;
 const highBMI = 24.9;
 let height = 0;
@@ -78,81 +79,38 @@ function displayWeightClassification(bmiValue) {
     return 'a healthy weight';
   } else if ( bmiValue >= 25 && bmiValue <= 29.9 ) {
     return 'overweight';
-  } else if ( bmiValue > 30 ) {
+  } else {
     return 'obese';
-  } else {
-    return '...';
-  }
-}
-
-function validateMetricInputs() { 
-  metricInputs.forEach(input => {
-    input.addEventListener('input', (e) => {
-      validateInput(e);
-    });
-  });
-}
-
-function validateImperialInputs() {
-  const imperialFeet = imperialInputs[0];
-  const imperialInch = imperialInputs[1];
-  const imperialStone = imperialInputs[2];
-  const imperialPound = imperialInputs[3];
-  const invalidHeightError = document.querySelector('[data-js="invalid-total-height"]');
-  const invalidWeightError = document.querySelector('[data-js="invalid-total-weight"]');
-
-  imperialInputs.forEach(input => {
-    input.addEventListener('input', (e) => {
-      validateInput(e);
-    });
-  });
-
-  // Check both height values and show error if total equals 0
-  if ( imperialFeet.value.trim() === '0' && imperialInch.value.trim() === '0' ) {
-    // Show error message    
-    invalidHeightError.classList.remove('not-visible');
-    invalidHeightError.classList.add('visible');
-    invalidHeightError.innerText = `Total height can't be zero`;
-  } else {
-    // Remove error message
-    invalidHeightError.classList.remove('visible');
-    invalidHeightError.classList.add('not-visible');
-    invalidHeightError.innerText = '';
-  }
-
-  // Check both weight values and show error if total equals 0
-  if ( imperialStone.value.trim() === '0' && imperialPound.value.trim() === '0' ) {
-    // Show error message    
-    invalidWeightError.classList.remove('not-visible');
-    invalidWeightError.classList.add('visible');
-    invalidWeightError.innerText = `Total weight can't be zero`;
-  } else {
-    // Remove error message
-    invalidWeightError.classList.remove('visible');
-    invalidWeightError.classList.add('not-visible');
-    invalidWeightError.innerText = '';
   }
 }
 
 function showCalculatorResults() {
   instructions.classList.add('hidden');
-  bmiValueText.classList.remove('hidden');
-  bmiCaption.classList.remove('hidden');
+  bmiValueBlock.classList.remove('hidden');
+  bmiCaptionBlock.classList.remove('hidden');
 }
 
 function hideCalculatorResults() {
   instructions.classList.remove('hidden');
-  bmiValueText.classList.add('hidden');
-  bmiCaption.classList.add('hidden');
+  bmiValueBlock.classList.add('hidden');
+  bmiCaptionBlock.classList.add('hidden');
 }
 
 function handleFormInput(e) {
   const measurement = document.querySelector('input[name="measurement"]:checked').value;
 
   if (measurement === 'metric') {
-    validateMetricInputs();
+    metricInputs.forEach(input => {
+      input.addEventListener('input', (e) => {
+        validateInput(e);
+      });
+    });
   } else {
-    validateImperialInputs();
+    imperialInputs.forEach(input => {
+      input.addEventListener('input', (e) => {
+        validateInput(e);
+      });
+    });
   }
 }
 
@@ -186,17 +144,14 @@ bmiForm.addEventListener('input', () => {
       let bmiOutputs = calculateMetricBMI(height, weight);
 
       bmi.value = `${bmiOutputs[0]}`;
-      bmiRange.innerText = `${bmiOutputs[1]}`;
+      bmiWeightRange.innerText = `${bmiOutputs[1]}`;
       bmiWeightClass.innerText = `${displayWeightClassification(bmiOutputs[0])}`;
+      ariaForBMI.innerText = `Your BMI value is ${bmi.value}. Your BMI suggests you're ${displayWeightClassification(bmiOutputs[0])}. Your ideal weight is between ${bmiOutputs[1]}.`
+
       showCalculatorResults();
-    } else if ( validMetricHeight || validMetricWeight ) {
-      // Show generic values if input changes while height or weight is valid
-      bmi.value = 0;
-      bmiRange.innerText = '...';
-      bmiWeightClass.innerText = `${displayWeightClassification(bmi.value)}`;
     } else {
       hideCalculatorResults();
-    }
+    } 
   }
 
   if ( !metric ) {
@@ -209,22 +164,27 @@ bmiForm.addEventListener('input', () => {
       let weightInStones = Number(imperialInputs[2].value) * 14;
       let weightInPounds = Number(imperialInputs[3].value);
 
-      height = heightInFeet + heightInInches;
-      weight = weightInStones + weightInPounds;
+      if ( heightInFeet === 0 && heightInInches === 0 ) {
+        return; // Exit if total height is zero
+      } else {
+        height = heightInFeet + heightInInches;
+      }
+
+      if ( weightInStones === 0 && weightInPounds === 0 ) {
+        return; // Exit if total weight is zero
+      } else {
+        weight = weightInStones + weightInPounds;
+      }
 
       // Calculate BMI and display results
       let bmiOutputs = calculateImperialBMI(height, weight);
 
       bmi.value = `${bmiOutputs[0]}`;
-      bmiRange.innerText = `${bmiOutputs[1]}`;
+      bmiWeightRange.innerText = `${bmiOutputs[1]}`;
       bmiWeightClass.innerText = `${displayWeightClassification(bmiOutputs[0])}`;
+      ariaForBMI.innerText = `Your BMI value is ${bmi.value}. Your BMI suggests you're ${displayWeightClassification(bmiOutputs[0])}. Your ideal weight is between ${bmiOutputs[1]}.`
+
       showCalculatorResults();
-    } else if ( validImperialHeightFeet && validImperialHeightInch || 
-      validImperialWeightStone && validImperialWeightPound ) {
-      // Show generic values if input changes while total height or total weight is valid
-      bmi.value = 0;
-      bmiRange.innerText = '...';
-      bmiWeightClass.innerText = `${displayWeightClassification(bmi.value)}`;
     } else {
       hideCalculatorResults();
     }

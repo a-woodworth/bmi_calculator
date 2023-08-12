@@ -18,6 +18,26 @@ function getErrorMessage(input) {
       input.setCustomValidity('');
     }
   }
+
+  if ( input.id === 'imperialHeightInch' ) {
+    const imperialHeightFeetInput = document.getElementById('imperialHeightFeet');
+    // Check to make sure both values aren't zero
+    if ( Number(input.value) === 0 && Number(imperialHeightFeetInput.value) === 0 ) {
+      input.setCustomValidity(`${errorMessages.zeroValueError}`); 
+    } else {
+      input.setCustomValidity('');
+    }
+  }
+
+  if ( input.id === 'imperialWeightPound' ) {
+    const imperialWeightStoneInput = document.getElementById('imperialWeightStone');
+    // Check to make sure both values aren't zero
+    if ( Number(input.value) === 0 && Number(imperialWeightStoneInput.value) === 0 ) {
+      input.setCustomValidity(`${errorMessages.zeroValueError}`); 
+    } else {
+      input.setCustomValidity('');
+    }
+  }
 }
 
 function validateInput(e) {
