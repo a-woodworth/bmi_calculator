@@ -59,6 +59,10 @@
   font-size: 0.875rem;
 }
 
+.form__error-message:where(p.visible) {
+  margin-bottom: 0.5rem;
+}
+
 .form__input-unit {
   color: var(--accent-color);
   position: absolute;
