@@ -18,26 +18,6 @@ function getErrorMessage(input) {
       input.setCustomValidity('');
     }
   }
-
-  if ( input.id === 'imperialHeightInch' ) {
-    const imperialHeightFeetInput = document.getElementById('imperialHeightFeet');
-    // Check to make sure both values aren't zero
-    if ( Number(input.value) === 0 && Number(imperialHeightFeetInput.value) === 0 ) {
-      input.setCustomValidity(`${errorMessages.zeroValueError}`); 
-    } else {
-      input.setCustomValidity('');
-    }
-  }
-
-  if ( input.id === 'imperialWeightPound' ) {
-    const imperialWeightStoneInput = document.getElementById('imperialWeightStone');
-    // Check to make sure both values aren't zero
-    if ( Number(input.value) === 0 && Number(imperialWeightStoneInput.value) === 0 ) {
-      input.setCustomValidity(`${errorMessages.zeroValueError}`); 
-    } else {
-      input.setCustomValidity('');
-    }
-  }
 }
 
 function validateInput(e) {
@@ -66,5 +46,33 @@ function validateInput(e) {
     messageBlock.classList.remove('error', 'visible');
     messageBlock.classList.add('not-visible');
     messageBlock.innerText = '';
+  }
+}
+
+function validateImperialHeightTotal() {
+  const totalHeightError = document.querySelector('[data-js="total-height-error"]');
+  const inputFeet = bmiForm.elements.imperialHeightFeet;
+  const inputInch = bmiForm.elements.imperialHeightInch;
+
+  if (inputFeet.value === '0' && inputInch.value === '0') {
+    totalHeightError.classList.remove('not-visible');
+    totalHeightError.classList.add('visible', 'error');
+  } else {
+    totalHeightError.classList.remove('visible', 'error');
+    totalHeightError.classList.add('not-visible');
+  }
+}
+
+function validateImperialWeightTotal() {
+  const totalWeightError = document.querySelector('[data-js="total-weight-error"]');
+  const inputStone = bmiForm.elements.imperialWeightStone;
+  const inputPound = bmiForm.elements.imperialWeightPound;
+
+  if (inputStone.value === '0' && inputPound.value === '0') {
+    totalWeightError.classList.remove('not-visible');
+    totalWeightError.classList.add('visible', 'error');
+  } else {
+    totalWeightError.classList.remove('visible', 'error');
+    totalWeightError.classList.add('not-visible');
   }
 }

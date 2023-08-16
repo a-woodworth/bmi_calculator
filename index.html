@@ -97,6 +97,8 @@
                 <div class="imperial-units hidden">
                   <fieldset>
                     <legend>Height</legend>
+                    <p class="form__error-message not-visible" data-js="total-height-error" 
+                      aria-live="assertive" aria-atomic="true">Total height can't be zero</p>
                     <p class="form__error-message not-visible" id="imperialHeightFeet-error"></p>
                     <p class="form__error-message not-visible" id="imperialHeightInch-error"></p>
                     <div class="imperial-group">
@@ -143,6 +145,8 @@
                 <div class="imperial-units hidden">
                   <fieldset>
                     <legend>Weight</legend>
+                    <p class="form__error-message not-visible" data-js="total-weight-error" 
+                      aria-live="assertive" aria-atomic="true">Total weight can't be zero</p>
                     <p class="form__error-message not-visible" id="imperialWeightStone-error"></p>
                     <p class="form__error-message not-visible" id="imperialWeightPound-error"></p>
                     <div class="imperial-group">
@@ -192,6 +196,8 @@
                     <p>Enter your height and weight and you'll see your BMI result here</p>
                   </div>
                   <div class="form__output-value hidden" data-js="bmi-value">
+                    <p id="description" class="sr-only" data-js="aria-bmi-output" 
+                      aria-live="polite" aria-atomic="true"></p>
                     <label for="bmi" aria-hidden="true">Your BMI is...</label>
                     <input
                       type="text"
@@ -200,11 +206,10 @@
                       value=""
                       readonly
                       aria-describedby="description">
-                      <p id="description" class="sr-only" aria-live="polite" aria-atomic="true" data-js="aria-bmi-output"></p>
                   </div>
                   <div class="form__output-caption hidden" data-js="bmi-caption">
-                    <p>
-                      Your BMI suggests you're <span data-js="classification">a healthy weight</span>. Your ideal weight is between <span data-js="range"></span>.
+                    <p aria-hidden="true">
+                      Your BMI suggests you're <span data-js="classification"></span>. Your ideal weight is between <span data-js="range"></span>.
                     </p>
                   </div>
                 </div>
