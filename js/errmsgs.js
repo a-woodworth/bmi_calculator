@@ -57,9 +57,11 @@ function validateImperialHeightTotal() {
   if (inputFeet.value === '0' && inputInch.value === '0') {
     totalHeightError.classList.remove('not-visible');
     totalHeightError.classList.add('visible', 'error');
+    totalHeightError.setAttribute('aria-live', 'assertive');
   } else {
     totalHeightError.classList.remove('visible', 'error');
     totalHeightError.classList.add('not-visible');
+    totalHeightError.removeAttribute('aria-live', 'assertive');
   }
 }
 
@@ -71,8 +73,10 @@ function validateImperialWeightTotal() {
   if (inputStone.value === '0' && inputPound.value === '0') {
     totalWeightError.classList.remove('not-visible');
     totalWeightError.classList.add('visible', 'error');
+    totalWeightError.setAttribute('aria-live', 'assertive');
   } else {
     totalWeightError.classList.remove('visible', 'error');
     totalWeightError.classList.add('not-visible');
+    totalWeightError.removeAttribute('aria-live', 'assertive');
   }
 }
