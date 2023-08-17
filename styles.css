@@ -47,6 +47,7 @@ h1 {
 }
 @media (min-width: 90rem) {
   h1 {
+    font-size: 4rem;
     text-align: left;
   }
 }
@@ -551,15 +552,32 @@ div.imperial-units:nth-child(4) {
   .calc-wrapper {
     flex-direction: row;
     align-items: start;
+    gap: 8rem;
   }
 }
 
 .calc__header {
-  max-width: 35.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 48rem) {
+  .calc__header {
+    max-width: 42.875rem;
+  }
 }
 @media (min-width: 90rem) {
   .calc__header {
+    align-items: start;
+    max-width: 35.25rem;
     padding-top: 6rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .calc__title {
+    max-width: 11ch;
   }
 }
 
@@ -568,6 +586,7 @@ div.imperial-units:nth-child(4) {
 }
 @media (min-width: 90rem) {
   .calc__sub-heading {
+    max-width: 29rem;
     text-align: left;
   }
 }
