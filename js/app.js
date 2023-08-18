@@ -58,25 +58,37 @@ function calculateMetricBMI(height, weight) {
 function calculateImperialBMI(height, weight) {
   const imperialScore = ( (weight / Math.pow(height, 2)) * 703 ).toFixed(1);
 
-  // Calculate imperial weight range values; 1 stone = 14 pounds
-  const imperialLow = (( [lowBMI * Math.pow(height, 2)] / 703) / 14).toFixed(2);
-  const imperialHigh = (( [highBMI * Math.pow(height, 2)] / 703) / 14).toFixed(2);
+  return imperialScore;
+}
 
-  // Format stone values for text string
-  const stones = (stonesTotal) => {
+function calculateImperialRange(height) {
+  // No stones -- st = 0
+  const isImperialUS = imperialInputs[2].value === '0';
+
+  if ( isImperialUS ) {
+    // BMI table reference: https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi_tbl.htm
+    const imperialUSLow = Math.floor( [Math.round(lowBMI) * Math.pow(height, 2)] / 703 );
+    const imperialUSHigh = Math.floor( [Math.floor(highBMI) * Math.pow(height, 2)] / 703 );
+
+    return `${imperialUSLow}lbs - ${imperialUSHigh}lbs`;
+  } else {
+    // Calculate imperial UK weight range values; 1 stone = 14 pounds
+    const imperialLow = (( [lowBMI * Math.pow(height, 2)] / 703) / 14).toFixed(2);
+    const imperialHigh = (( [highBMI * Math.pow(height, 2)] / 703) / 14).toFixed(2);
+
+    // Format stone values for text string
+    const stones = (stonesTotal) => {
     // Display whole number stone values
-    return stonesTotal.split('.')[0];
-  };
-  // Convert remainder stone values to pounds
-  const stonesToPounds = (stonesTotal) => {
-    return Math.floor((stonesTotal.split('.')[1] * 14) / 100);
-  };
+      return stonesTotal.split('.')[0];
+    };
+    // Convert remainder stone values to pounds
+    const stonesToPounds = (stonesTotal) => {
+      return Math.floor((stonesTotal.split('.')[1] * 14) / 100);
+    };
 
-  // Create text for imperial range
-  const imperialRange = 
-    `${stones(imperialLow)}st ${stonesToPounds(imperialLow)}lbs - ${stones(imperialHigh)}st ${stonesToPounds(imperialHigh)}lbs`;
-
-  return [ imperialScore, imperialRange ];
+    // Create text for imperial UK range
+    return `${stones(imperialLow)}st ${stonesToPounds(imperialLow)}lbs - ${stones(imperialHigh)}st ${stonesToPounds(imperialHigh)}lbs`;
+  }
 }
 
 function displayWeightClassification(bmiValue) {
@@ -182,7 +194,7 @@ function handleFormInput(e) {
       weight = weightInStones + weightInPounds;
 
       // Calculate BMI and display results
-      let bmiOutputs = calculateImperialBMI(height, weight);
+      let bmiOutputs = [ calculateImperialBMI(height, weight), calculateImperialRange(height) ];
       showCalculatorResults(bmiOutputs);
       // Add slight delay for assistive technologies
       setTimeout(updateAriaForBMI, 2000);
