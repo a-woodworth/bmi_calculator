@@ -37,7 +37,7 @@ Users should be able to:
 ![Mobile Sceenshot](/screenshots/mobile-screenshot-375px.png)
 
 ### Links
-- Solution URL: [Solution]()
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/body-mass-index-calculator-css-grid-and-javascript-Zs9CGF9SJk)
 - Live Site URL: [Live Site](https://a-woodworth.github.io/bmi_calculator)
 
 ### Built with
@@ -46,4 +46,3 @@ Users should be able to:
 - CSS Flexbox and Grid
 - JavaScript
 - [Sass](https://sass-lang.com) - CSS Preprocessor
-
